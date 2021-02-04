@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp20
 {
-    class Resource
+    class Resource:IDisposable
     {
         string Name;
         string s = new string('*', 256 * 341);
@@ -16,6 +16,10 @@ namespace ConsoleApp20
             Name = name;
         }
         // protected override void Finalize(string name)
+        public void Dispose()
+        {
+            WriteLine("Dispose");
+        }
         ~Resource()
         {
             WriteLine(Name + " has been finalized");
